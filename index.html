@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+           
+            background-image: url('/assets/img/RDT_20240719_1844042495651288823104975.jpg');
+            background-size: 550px;
+        }
+        .container {
+            max-width: 600px;
+            text-align: center;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        .account {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .account strong {
+            color: #555;
+        }
+        .account button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .account button:hover {
+            background-color: #45a049;
+        }
+        .download-image {
+            display: block;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .download-button:hover {
+            background-color: #45a049;
+        }
+        .telegram-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #0088cc;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .telegram-button:hover {
+            background-color: #006699;
+        }
+    </style>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard: ' + text);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        function getOriginalText(accountType) {
+            const mappings = {
+                'Dana': '083176803605',
+               
+            };
+            return mappings[accountType];
+        }
+
+        function copyFromElement(element) {
+            const accountType = element.getAttribute('data-account-type');
+            const originalText = getOriginalText(accountType);
+            if (accountType === 'Crypto') {
+                window.location.href = originalText;
+            } else {
+                copyToClipboard(originalText);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2><u>Payment Information</u></h2>
+        <div class="account">
+            <strong>Dana:</strong> *****3605
+            <button data-account-type="Dana" onclick="copyFromElement(this)">Copy</button>
+        </div>
+       
+    
+  
+        
+        
+        <h3><u>Download QRIS Image</u></h3>
+        <div class="account">
+            <a href="./assets/img/qr_ID1023262898951_24.07.24_172182510.jpeg" download class="download-button">Download QRIS</a>
+               </div>
+        <div class="align-center">
+        <div class="download-image">
+            <img src="./assets/img/qr_ID1023262898951_24.07.24_172182510.jpeg" alt="QRIS Image" style="width: 100%; max-width: 400px;">
+        
+        </div>
+        </div>
+       
+               <div class="row align-items-center content">
+        <a href="https://t.me/SaputraTech" class="telegram-button">KIRIM BUKTI DONASI</a>
+      
+     </div>
+     
+    </div>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8ab519afdb129e28',t:'MTcyMjMzOTkwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
